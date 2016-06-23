@@ -1,0 +1,50 @@
+/*popover*/
+.tooltips-wrap {
+    display: inline-block;
+    position: absolute;
+}
+.tooltips-wrap .tooltips {
+    display: inline-block;
+    padding: 5px 20px;
+    border: 1px solid #d84527;
+    position: relative;
+    border-radius: 2px;
+}
+.tooltips-wrap .tooltips ul,
+.tooltips-wrap .tooltips li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.tooltips-wrap .tooltips li.tip {
+    color: #d84527;
+}
+.tooltips-wrap .tooltips li.tip.valid {
+    color: #072;
+}
+.tooltips-wrap .tooltips i.arrow {
+    position: absolute;
+    left: -14px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    border-width: 7px;
+    border-style: dashed solid dashed dashed;
+    border-color: transparent #d84527 transparent transparent;
+}
+.tooltips-wrap .tooltips i.arrow.in {
+    left: -12px;
+    top: 6px;
+    border-color: transparent #ffffff transparent transparent;
+}
+.tooltips-wrap .tooltips.valid {
+    border: 1px solid #072;
+}
+.tooltips-wrap .tooltips.valid i.arrow {
+    border-color: transparent #072 transparent transparent;
+}
+.tooltips-wrap .tooltips.valid i.arrow.in {
+    border-color: transparent #ffffff transparent transparent;
+}
