@@ -66,7 +66,15 @@
             account: '',
             password: '',
             passwordRepeat: '',
-            remember: false
+            remember: false,
+//            books: [{
+//                title: '生命不能承受之轻',
+//                content: '态度惹我图一为涂鸦热舞i也太容易生命不能承受之轻',
+//                images: ['1.png','2.png','3.jpj']
+//            },{
+//                title: '我从全世界路过啊',
+//                content: '我从去哪世界路过啊对各位分以上的法国和德国海景房都是规范化的工会经费的思考和规范的两个货到付款'
+//            }]
         }
         $scope.submit = function (e) {
             e.preventDefault();
@@ -84,7 +92,6 @@
                     alert('你还未同意使用协议');
                     return;
                 }
-                console.log($scope.postData);
 //                $.ajax({
 //                    type: 'POST',
 //                    url: '/reg',
@@ -99,10 +106,47 @@
                 $http({
                     method: 'POST',
                     url: '/reg',
+                    withCredentials: true, // 允许发送Cookie
+                    data: $scope.postData,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    data: $scope.postData
+                    // 使数据匹配body-parser的形式,否则会解析错误拿不到数据,
+                    // 如果不用这一个方法,数据会被解析成一个{key:value}的json,key是整个数据的字符串,而value是空.
+                    transformRequest: function(data) {
+                        var param = function (obj) {
+                            var query = '', prop, value, fullSubName, subName, subValue, innerObj, i;
+                            for (prop in obj) {
+                                value = obj[prop];
+                                if (value instanceof Array) {
+                                    for (i = 0; i < value.length; ++i) {
+                                        subValue = value[i];
+                                        fullSubName = prop + '[' + i + ']';
+                                        innerObj = {};
+                                        innerObj[fullSubName] = subValue;
+                                        query += param(innerObj) + '&';
+                                    }
+                                } else if (value instanceof Object) {
+                                    for (subName in value) {
+                                        subValue = value[subName];
+                                        fullSubName = prop + '[' + subName + ']';
+                                        innerObj = {};
+                                        innerObj[fullSubName] = subValue;
+                                        query += param(innerObj) + '&';
+                                    }
+                                } else if (value !== undefined && value !== null) {
+                                    query += encodeURIComponent(prop) + '=' + encodeURIComponent(value) + '&'
+                                }
+                            }
+                            return query.length ? query.substr(0, query.length - 1) : query;
+                        }
+                        return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
+//                        var str = [];
+//                        for(var p in obj){
+//                            str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+//                        }
+//                        return str.join('&');
+                    }
                 }).success(function (data) {
                     console.log(data);
                 }).error(function (data) {

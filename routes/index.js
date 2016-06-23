@@ -13,7 +13,6 @@ router.get('/reg',function(req, res, next){
 router.post('/reg',function(req,res,next){
   req.on('data',function(data){
     var dataJson = querystring.parse(data.toString());
-    console.log(dataJson);
     var account = dataJson['account'],
         password = dataJson['password'],
         passwordRepeat = dataJson['passwordRepeat'];
@@ -39,13 +38,13 @@ router.post('/reg',function(req,res,next){
         res.json(err);
         return;
       }
-      newUser.save(function(err){
+      newUser.save(function(err,user){
         if (err) {
           res.json(err);
           return;
         }
-        req.session.user = newUser;
-
+        console.log(user);
+        //req.session.user = user;
         res.json({
           code: 0,
           msg: '注册成功!'
