@@ -45,7 +45,8 @@ router.post('/reg', function (req, res, next) {
             req.session.user = user;
             res.json({
                 code: 0,
-                msg: '注册成功!'
+                msg: '注册成功!',
+                url: '/'
             });
             return;
         });
@@ -54,6 +55,22 @@ router.post('/reg', function (req, res, next) {
 router.get('/login', function (req, res, next) {
     console.log(req.body);
     res.render('login', {title: '用户登录'});
+});
+router.post('/login',function(req, res, next){
+    console.log('body:'+req.body);
+    User.get(req.body.account,function(err,user){
+        if(!user){
+            res.json({code:1,msg:'用户名不存在'});
+            return;
+        }
+        if(user.password != req.body.password){
+            res.json({code:1,msg:'密码错误'});
+            return;
+        }
+        req.session.user = user;
+        res.json({code:1,msg:'登录成功',url: '/'});
+        return;
+    });
 });
 
 module.exports = router;

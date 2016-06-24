@@ -12,13 +12,18 @@
             <span class="submit">搜索</span>
         </div>
         <div class="loginStatus">
+            <% if(!user) { %>
             <div class="loginbar show">
                 <a class="login" href="/login">登录</a>|<a class="register" href="/reg">注册</a>
             </div>
-            <div class="logoutbar">
-                <span class="account">FernAbby小堂妹儿</span>
+            <% }else { %>
+            <div class="logoutbar show">
+                <span class="account">
+                    <%= user.account %>
+                </span>
                 <a>注销</a>
             </div>
+            <% } %>
         </div>
     </header>
 </div>

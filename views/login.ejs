@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
@@ -7,22 +7,26 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>BegoniaNote</title>
-    <link href="/images/logo12.ico" rel="icon" type="image/x-icon"/>
-    <style media="screen" title="no title">@charset "UTF-8";*{margin:0;padding:0;-webkit-tap-highlight-color:rgba(255,255,255,0);font-family:Arial,PingFang SC,'Microsoft Yahei','微软雅黑',SimHei,Helvetica,Simsun,'宋体';outline:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}ul,li{list-style:none}a:active,a:hover,a:link,a:visited{text-decoration:none}html,body{width:100%;height:100%;font-size:20px;background-color:#fff}img{width:100%;border:0;vertical-align:middle}.header-wrap{width:100%;min-width:980px;background-color:#eef4ed;margin-bottom:40px}.header-wrap header{margin:0 auto;display:block;width:980px;height:74px;line-height:74px;white-space:nowrap;overflow:hidden;text-transform:capitalize}.header-wrap header .logo{float:left;width:180px;height:30px;margin:22px 13px 22px 0;background:url(/images/hehe.png) no-repeat center;background-size:cover;text-indent:-9999px}.header-wrap header .search{float:left;margin:21px 14px;display:inline-block;width:250px;padding-right:30px;height:32px;position:relative;border:1px solid #e1e9e1;overflow:hidden;background-color:#fff}.header-wrap header .search input[type=text]{float:left;width:100%;height:30px;line-height:30px;padding:5px 0 5px 8px;background-color:transparent;border:0}.header-wrap header .search .submit{width:30px;height:30px;position:absolute;right:0;text-indent:-9999px;background:url(/images/bn_srh.png) no-repeat center}.header-wrap header .nav{float:left;font-size:16px;height:74px;line-height:74px}.header-wrap header .nav li{height:30px;line-height:30px;display:inline-block}.header-wrap header .nav li a{display:block;padding:0 13px}.header-wrap header .nav li a:hover{background-color:#bee1c6;color:#fff}.header-wrap header .nav li a.selected{background-color:#e3f0e6}.header-wrap header .loginStatus{float:right;height:74px}.header-wrap header .loginStatus a{margin:0 8px;color:#072;vertical-align:middle}.header-wrap header .loginStatus a:hover{color:#fff;background-color:#072}.header-wrap header .loginStatus .loginbar{display:none}.header-wrap header .loginStatus .loginbar.show{display:block}.header-wrap header .loginStatus .logoutbar{display:none}.header-wrap header .loginStatus .logoutbar a,.header-wrap header .loginStatus .logoutbar span{vertical-align:middle}.header-wrap header .loginStatus .logoutbar.show{display:block}.footer-wrap{width:100%;font-size:12px;border-top:1px dashed #ddd;color:#999;background-color:#fff;margin-top:-32px}.footer-wrap footer{width:980px;height:32px;margin:0 auto;text-align:center;line-height:32px}.content-wrap{width:980px;min-height:100%;margin:-114px auto 0;padding-top:114px;padding-bottom:40px}html,body{font-size:14px;color:#6a6a6a}.content-wrap form .form-title{display:block;width:100%;padding:0;margin-bottom:40px;font-size:21px;line-height:40px;color:#333;border:0;border-bottom:1px solid #e5e5e5}.content-wrap form .input-group{overflow:hidden}.content-wrap form .input-group label{float:left;width:160px;height:30px;text-align:right;display:block;font-size:14px;line-height:30px}.content-wrap form .input-group input{float:left;display:block;height:30px;line-height:20px;width:270px;font-size:14px;color:#000;border:1px solid #ccc;vertical-align:middle;-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;border-radius:4px;background-color:#fff;padding:4px 6px;margin:0 0 20px 20px}.content-wrap form .input-group input.error{border:1px solid #db4c6a}.content-wrap form .input-group .errorTip{font-size:12px;float:left;height:30px;line-height:30px;color:#db4c6a;margin-left:15px;display:none}.content-wrap form .input-group .errorTip.show{display:inline-block}.content-wrap form .input-group:after{content:'';display:block;clear:both}.content-wrap form .form-remember{cursor:pointer;font-size:12px;display:inline;text-align:left;margin-left:180px;color:#666}.content-wrap form .form-remember a{text-decoration:none;color:#669}.content-wrap form .form-remember a:hover{text-decoration:underline}.content-wrap form .form-footer{padding:19px 20px 20px 180px;margin-top:20px;margin-bottom:20px;background-color:#f5f5f5;border-top:1px solid #e5e5e5}.content-wrap form .form-footer input{font-size:14px;color:#fff;display:inline-block;height:28px;width:64px;line-height:24px;-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;border-radius:4px;background-color:#30A080;border:0}.content-wrap form .form-footer input:hover{background-color:#2a8c70;border-color:#6aad54}.content-wrap form .form-footer .item-3rd{display:inline-block;padding:5px 0;width:200px;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;clear:both;margin-left:60px}.content-wrap form .form-footer .item-3rd label{width:auto;margin:0;font-size:12px;color:#999;line-height:1.5;display:inline-block;float:left;text-align:right;vertical-align:baseline}.content-wrap form .form-footer .item-3rd a img{width:16px;height:16px;margin:0 5px;vertical-align:middle}</style>
+    <link href="/images/logo.ico" rel="icon" type="image/x-icon"/>
+    <style media="screen" title="no title">@charset "UTF-8";*{margin:0;padding:0;-webkit-tap-highlight-color:rgba(255,255,255,0);font-family:Arial,PingFang SC,'Microsoft Yahei','微软雅黑',SimHei,Helvetica,Simsun,'宋体';outline:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}ul,li{list-style:none}a:active,a:hover,a:link,a:visited{text-decoration:none}html,body{width:100%;height:100%;font-size:20px;background-color:#fff}img{width:100%;border:0;vertical-align:middle}.header-wrap{width:100%;min-width:980px;background-color:#eef4ed;margin-bottom:40px}.header-wrap header{margin:0 auto;display:block;width:980px;height:74px;line-height:74px;white-space:nowrap;overflow:hidden;text-transform:capitalize}.header-wrap header .logo{float:left;width:180px;height:30px;margin:22px 13px 22px 0;background:url(/images/hehe.png) no-repeat center;background-size:cover;text-indent:-9999px}.header-wrap header .search{float:left;margin:21px 14px;display:inline-block;width:250px;padding-right:30px;height:32px;position:relative;border:1px solid #e1e9e1;overflow:hidden;background-color:#fff}.header-wrap header .search input[type=text]{float:left;width:100%;height:30px;line-height:30px;padding:5px 0 5px 8px;background-color:transparent;border:0}.header-wrap header .search .submit{width:30px;height:30px;position:absolute;right:0;text-indent:-9999px;background:url(/images/bn_srh.png) no-repeat center}.header-wrap header .nav{float:left;font-size:16px;height:74px;line-height:74px}.header-wrap header .nav li{height:30px;line-height:30px;display:inline-block}.header-wrap header .nav li a{display:block;padding:0 13px}.header-wrap header .nav li a:hover{background-color:#bee1c6;color:#fff}.header-wrap header .nav li a.selected{background-color:#e3f0e6}.header-wrap header .loginStatus{float:right;height:74px}.header-wrap header .loginStatus a{margin:0 8px;color:#072;vertical-align:middle}.header-wrap header .loginStatus a:hover{color:#fff;background-color:#072}.header-wrap header .loginStatus .loginbar{display:none}.header-wrap header .loginStatus .loginbar.show{display:block}.header-wrap header .loginStatus .logoutbar{display:none}.header-wrap header .loginStatus .logoutbar a,.header-wrap header .loginStatus .logoutbar span{vertical-align:middle}.header-wrap header .loginStatus .logoutbar.show{display:block}.footer-wrap{width:100%;font-size:12px;border-top:1px dashed #ddd;color:#999;background-color:#fff;margin-top:-32px}.footer-wrap footer{width:980px;height:32px;margin:0 auto;text-align:center;line-height:32px}.content-wrap{width:980px;min-height:100%;margin:-114px auto 0;padding-top:114px;padding-bottom:40px}html,body{font-size:14px;color:#6a6a6a}.content-wrap form .form-title{display:block;width:100%;padding:0;margin-bottom:40px;font-size:21px;line-height:40px;color:#333;border:0;border-bottom:1px solid #e5e5e5}.content-wrap form .input-group{overflow:hidden}.content-wrap form .input-group label{float:left;width:160px;height:30px;text-align:right;display:block;font-size:14px;line-height:30px}.content-wrap form .input-group input{float:left;display:block;height:30px;line-height:20px;width:270px;font-size:14px;color:#000;border:1px solid #ccc;vertical-align:middle;-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;border-radius:4px;background-color:#fff;padding:4px 6px;margin:0 0 20px 20px}.content-wrap form .input-group input.error{border:1px solid #db4c6a}.content-wrap form .input-group .errorTip{font-size:12px;float:left;height:30px;line-height:30px;color:#db4c6a;margin-left:15px;display:none}.content-wrap form .input-group .errorTip.show{display:inline-block}.content-wrap form .input-group:after{content:'';display:table;clear:both}.content-wrap form .form-remember{cursor:pointer;font-size:12px;display:inline;text-align:left;margin-left:180px;color:#666}.content-wrap form .form-remember a{text-decoration:none;color:#669}.content-wrap form .form-remember a:hover{text-decoration:underline}.content-wrap form .form-footer{padding:19px 20px 20px 180px;margin-top:20px;margin-bottom:20px;background-color:#f5f5f5;border-top:1px solid #e5e5e5}.content-wrap form .form-footer input{font-size:14px;color:#fff;display:inline-block;height:28px;width:64px;line-height:24px;-webkit-border-radius:4px;-moz-border-radius:4px;-ms-border-radius:4px;-o-border-radius:4px;border-radius:4px;background-color:#30A080;border:0}.content-wrap form .form-footer input:hover{background-color:#2a8c70;border-color:#6aad54}.content-wrap form .form-footer .item-3rd{display:inline-block;padding:5px 0;width:200px;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;clear:both;margin-left:60px}.content-wrap form .form-footer .item-3rd label{width:auto;margin:0;font-size:12px;color:#999;line-height:1.5;display:inline-block;float:left;text-align:right;vertical-align:baseline}.content-wrap form .form-footer .item-3rd a img{width:16px;height:16px;margin:0 5px;vertical-align:middle}</style>
 </head>
 <body>
-<% include header.ejs%>
-<div class="content-wrap">
-    <form>
+<% include header.ejs %>
+<div class="content-wrap" ng-controller="regController">
+    <form name="form" novalidate="novalidate">
         <div class="form-title">用户登录</div>
         <div class="input-group">
             <label>用户名</label>
-            <input name="account" placeholder="输入用户名"/>
+            <input class="ngValidate" name="account" placeholder="输入用户名"
+                   vd-required="true" vd-required-msg="账户不能为空" vd-maxlength="30" vd-maxlength-msg="最多不超过30位"
+                   trigger="focus" ng-model="postData.account"/>
             <span class="errorTip">错误提示!</span>
         </div>
         <div class="input-group">
             <label>密码</label>
-            <input name="password" placeholder="请输入密码"/>
+            <input class="ngValidate" name="password" placeholder="请输入密码"
+                   vd-required="true" vd-required-msg="密码不能为空" vd-maxlength="16" vd-maxlength-msg="最多不超过16位"
+                   vd-minlength="6" vd-minlength-msg="最小不少于6位" vd-maxlength-msg="最大不超过16位" ng-model="postData.password"/>
             <span class="errorTip">错误提示!</span>
         </div>
         <div class="form-remember">
@@ -31,7 +35,7 @@
             <a href="https://accounts.douban.com/resetpassword">&nbsp;忘记密码了</a>
         </div>
         <div class="form-footer">
-            <input type="submit" value="登&nbsp;&nbsp;录"/>
+            <input type="submit" ng-click="submit($event)" value="登&nbsp;&nbsp;录"/>
             <div class="item-3rd">
                 <label>
                     第三方登录：
@@ -55,5 +59,76 @@
     </form>
 </div>
 <% include footer.ejs%>
+<script type="text/javascript">
+    var app = angular.module('app', ['ngPlugin']);
+    app.controller('regController', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+        $scope.postData = {
+            account: '',
+            password: '',
+            remember: false
+        }
+        $scope.submit = function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if ($scope.form && $scope.form.$invalid) {
+                angular.forEach($scope.form.$error, function (i, v) {
+                    angular.forEach(i, function (obj, idx) {
+                        obj.$dirty = true;
+                        obj.$pristine = false;
+                    });
+                });
+                console.log('请检查表单填写是否正确');
+            } else {
+                $http({
+                    method: 'POST',
+                    url: '/login',
+                    withCredentials: true, // 允许发送Cookie
+                    data: $scope.postData,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    // 使数据匹配body-parser的形式,否则会解析错误拿不到数据,
+                    // 如果不用这一个方法,数据会被解析成一个{key:value}的json,key是整个数据的字符串,而value是空.
+                    transformRequest: function (data) {
+                        var param = function (obj) {
+                            var query = '', prop, value, fullSubName, subName, subValue, innerObj, i;
+                            for (prop in obj) {
+                                value = obj[prop];
+                                if (value instanceof Array) {
+                                    for (i = 0; i < value.length; ++i) {
+                                        subValue = value[i];
+                                        fullSubName = prop + '[' + i + ']';
+                                        innerObj = {};
+                                        innerObj[fullSubName] = subValue;
+                                        query += param(innerObj) + '&';
+                                    }
+                                } else if (value instanceof Object) {
+                                    for (subName in value) {
+                                        subValue = value[subName];
+                                        fullSubName = prop + '[' + subName + ']';
+                                        innerObj = {};
+                                        innerObj[fullSubName] = subValue;
+                                        query += param(innerObj) + '&';
+                                    }
+                                } else if (value !== undefined && value !== null) {
+                                    query += encodeURIComponent(prop) + '=' + encodeURIComponent(value) + '&'
+                                }
+                            }
+                            return query.length ? query.substr(0, query.length - 1) : query;
+                        }
+                        return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
+                    }
+                }).success(function (data) {
+                    console.log(data);
+                    $timeout(function () {
+                        location.href = data.url;
+                    }, 3000);
+                }).error(function (data) {
+                    console.log(data);
+                });
+            }
+        }
+    }]);
+</script>
 </body>
 </html>

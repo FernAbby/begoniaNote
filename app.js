@@ -8,8 +8,10 @@ var mongoStore = require('connect-mongodb');
 var session = require('express-session');
 var flash = require('connect-flash');
 
-var app = express();
+//路由文件
 var route = require('./routes/route');
+
+var app = express();
 
 //设置模版引擎
 app.set('views', path.join(__dirname, 'views'));
@@ -26,9 +28,6 @@ app.use(session({
     saveUninitialized: true
 }));
 
-//路由
-route(app);
-
 //设置静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
@@ -39,6 +38,10 @@ app.use(function(req,res,next){
     res.locals.success = success.length ? success : null;
     next();
 });
+
+//路由
+route(app);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
