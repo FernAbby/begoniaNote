@@ -2,16 +2,26 @@ var express = require('express');
 var querystring = require('querystring');
 var router = express.Router();
 
-var User = require('../models/user.js');
+var User = require('../models/User.js');
+var Post = require('../models/Post.js');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('home', {title: '首页'});
+    console.log('hehhhe');
+    Post.get(null,function(err,posts){
+        if(err){
+            posts = [];
+        }
+        console.log(posts);
+        res.render('home', {
+            title: '首页',
+            posts: posts
+        });
+    });
 });
 router.get('/reg', function (req, res, next) {
     res.render('reg', {title: '用户注册'});
 });
 router.post('/reg', function (req, res, next) {
-    console.log(req.body);
     var account = req.body['account'],
         password = req.body['password'],
         passwordRepeat = req.body['passwordRepeat'];
@@ -34,8 +44,7 @@ router.post('/reg', function (req, res, next) {
             };
         }
         if (err) {
-            res.json(err);
-            return;
+            return res.json(err);
         }
         newUser.save(function (err, user) {
             if (err) {
@@ -43,12 +52,11 @@ router.post('/reg', function (req, res, next) {
                 return;
             }
             req.session.user = user;
-            res.json({
+            return res.json({
                 code: 0,
                 msg: '注册成功!',
                 url: '/'
             });
-            return;
         });
     });
 });
@@ -57,7 +65,6 @@ router.get('/login', function (req, res, next) {
     res.render('login', {title: '用户登录'});
 });
 router.post('/login',function(req, res, next){
-    console.log('body:'+req.body);
     User.get(req.body.account,function(err,user){
         if(!user){
             res.json({code:1,msg:'用户名不存在'});
