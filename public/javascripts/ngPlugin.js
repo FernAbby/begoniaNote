@@ -128,6 +128,7 @@ angular.module('ngPlugin', [])
             replace: true,
             link: function (scope, ele, attr, ngModelCtrl) {
                 if (!ngModelCtrl) return;
+                
                 var Vname = scope.$parent.$eval(attr.dyName) || attr.dyName || attr.name;
                 scope.vname = scope.$parent.$eval(attr.dyName) || attr.dyName || attr.name;
                 scope.fname = angular.element(ele).parents('form').attr('name');
